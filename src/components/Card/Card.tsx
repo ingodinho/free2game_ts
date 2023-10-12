@@ -36,13 +36,11 @@ const Wrapper = styled.article`
   border-radius: ${css.borderRadius.xl};
   background-color: ${css.color.accentDark};
   color: ${css.color.textLight};
-
-  //  in dev
-  max-width: 300px;
 `
 
 const Thumbnail = styled.img`
   border-radius: ${css.borderRadius.xl};
+  width: 100%;
 `
 
 const Body = styled.div`
