@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
-import {getAllGames} from "../../helpers/mock-api.helpers.ts";
-import {Game} from "../../types/game.type.ts";
+import {getAllGames} from "../helpers/mock-api.helpers.ts";
+import {Game} from "../types/game.type.ts";
 
 export const useAllGames = () => {
     const [allGames, setAllGames] = React.useState<Game[]>([]);

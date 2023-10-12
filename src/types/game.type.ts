@@ -5,7 +5,7 @@ export type Game = {
     short_description: string;
     game_url: string;
     genre: string;
-    platform: string;
+    platform: "PC (Windows)" | "Web Browser";
     publisher: string;
     developer: string;
     release_date: string;

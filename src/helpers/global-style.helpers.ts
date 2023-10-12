@@ -1,16 +1,18 @@
 import {createGlobalStyle} from "styled-components";
+import Oswald from "../assets/font/oswald/Oswald-VariableFont_wght.ttf"
+import TitilliumRegular from "../assets/font/titillium/TitilliumWeb-Regular.ttf"
 
 const GlobalStyle = createGlobalStyle`
   
   @font-face {
     font-family: "Oswald";
-    src: url("../assets/font/oswald/Oswald-VariableFont_wght.ttf");
+    src: url(${Oswald});
   }
   
   @font-face {
     font-family: "Titillium";
     font-weight: 400;
-    src: url("../assets/font/titillium/TitilliumWeb-Regular.ttf");
+    src: url(${TitilliumRegular});
   }
   
   *, *::before, *::after {
