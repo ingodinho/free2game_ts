@@ -23,6 +23,7 @@ const StyledButton = styled(Link)`
   border-radius: ${css.borderRadius.m};
   color: ${css.color.textLight};
   cursor: pointer;
+  display: inline-block;
   font-family: ${css.fontFamily.primary};
   font-size: ${css.fontSize["18"]};
   font-weight: 700;

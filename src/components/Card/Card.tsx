@@ -2,8 +2,7 @@ import styled from "styled-components";
 import {css} from "../../constants.ts";
 import {Game} from "../../types/game.type.ts";
 import Button from "../Button/Button.tsx";
-import IconChip from "../IconChip/IconChip.tsx";
-import GenreChip from "../GenreChip/GenreChip.tsx";
+import ChipWrapper from "../ChipWrapper/ChipWrapper.tsx";
 
 type CardProps = {
     game: Game;
@@ -22,10 +21,7 @@ const Card = ({game, includesDescription = false}: CardProps) => {
                     <MarginAuto></MarginAuto>
                     <Button url={"/"}>READ MORE</Button>
                 </TextWrapper>
-                <ChipWrapper>
-                    <IconChip plattform={game.platform}/>
-                    <GenreChip genre={game.genre}/>
-                </ChipWrapper>
+                <ChipWrapper platform={game.platform} genre={game.genre}/>
             </Body>
         </Wrapper>
     )
@@ -56,13 +52,13 @@ const Body = styled.div`
 `
 
 const TextWrapper = styled.div`
+  border-bottom: 2px solid ${css.color.seperator};
+  display: flex;
+  flex: 1;
+  flex-direction: column;
   padding-inline-start: ${css.spacing.xs};
   padding-inline-end: ${css.spacing.xxs};
   padding-block-end: ${css.spacing.xl};
-  border-bottom: 2px solid ${css.color.seperator};
-  flex: 1;
-  display: flex;
-  flex-direction: column;
 `
 
 const Title = styled.h4`
@@ -85,11 +81,4 @@ const Description = styled.p`
 
 const MarginAuto = styled.div`
   margin-block-start: auto;
-`
-
-const ChipWrapper = styled.div`
-  display: flex;
-  gap: 12px;
-  padding-block-start: ${css.spacing.m};
-  padding-inline: ${css.spacing.xxs};
 `

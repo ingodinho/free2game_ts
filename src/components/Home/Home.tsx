@@ -6,10 +6,11 @@ import Spacer from "../Spacer/Spacer.tsx";
 import {css} from "../../constants.ts";
 import HomeRecentlyAdded from "./HomeRecentlyAdded.tsx";
 import HomeTopBrowser from "./HomeTopBrowser.tsx";
+import HomeTopPc from "./HomeTopPc/HomeTopPc.tsx";
 
 const Home = () => {
 
-    const {data: allGames, isLoading, error} = useGames({category: "strategy"});
+    const {data: games, isLoading, error} = useGames();
 
     return (
         <>
@@ -17,15 +18,15 @@ const Home = () => {
             <Layout>
                 {/*todo: Loading and Error Component*/}
                 <HomeSection title={"Recently Added"} url={"/"}>
-                  <HomeRecentlyAdded allGames={allGames} isLoading={isLoading} error={error} />
+                  <HomeRecentlyAdded games={games} isLoading={isLoading} error={error} />
                 </HomeSection>
                 <Spacer height={css.spacing.layoutTop}/>
                 <HomeSection title={"Top 4 Games in PC"} url={"/"}>
-                    <p>PLATZHALTER</p>
+                    <HomeTopPc games={games} isLoading={isLoading}/>
                 </HomeSection>
                 <Spacer height={css.spacing.layoutTop}/>
                 <HomeSection title={"Top 4 Games for Browser"} url={"/"}>
-                    <HomeTopBrowser allGames={allGames} isLoading={isLoading} error={error}/>
+                    <HomeTopBrowser games={games} isLoading={isLoading} error={error}/>
                 </HomeSection>
             </Layout>
         </>
