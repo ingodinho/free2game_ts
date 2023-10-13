@@ -11,6 +11,7 @@ type CardProps = {
 }
 
 const Card = ({game, includesDescription = false}: CardProps) => {
+
     return (
         <Wrapper>
             <Thumbnail src={game.thumbnail} alt={game.title}/>
@@ -18,7 +19,8 @@ const Card = ({game, includesDescription = false}: CardProps) => {
                 <TextWrapper>
                     <Title>{game.title}</Title>
                     {includesDescription && <Description>{game.short_description}</Description>}
-                    <Button>READ MORE</Button>
+                    <MarginAuto></MarginAuto>
+                    <Button url={"/"}>READ MORE</Button>
                 </TextWrapper>
                 <ChipWrapper>
                     <IconChip plattform={game.platform}/>
@@ -36,6 +38,8 @@ const Wrapper = styled.article`
   border-radius: ${css.borderRadius.xl};
   background-color: ${css.color.accentDark};
   color: ${css.color.textLight};
+  display: flex;
+  flex-direction: column;
 `
 
 const Thumbnail = styled.img`
@@ -44,13 +48,21 @@ const Thumbnail = styled.img`
 `
 
 const Body = styled.div`
+  display: flex;
   padding-block: ${css.spacing.l};
   padding-inline: ${css.spacing.m};
+  flex: 1;
+  flex-direction: column;
 `
 
 const TextWrapper = styled.div`
-  padding-bottom: ${css.spacing.xl};
+  padding-inline-start: ${css.spacing.xs};
+  padding-inline-end: ${css.spacing.xxs};
+  padding-block-end: ${css.spacing.xl};
   border-bottom: 2px solid ${css.color.seperator};
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 `
 
 const Title = styled.h4`
@@ -58,13 +70,21 @@ const Title = styled.h4`
   font-size: ${css.fontSize["18"]};
   font-weight: 700;
   margin-bottom: ${css.spacing.m};
-  min-height: 2em;
 `
 
 const Description = styled.p`
   font-family: ${css.fontFamily.secondary};
   color: ${css.color.textDark};
-  padding-block-end: ${css.spacing.l};
+  display: -webkit-box;
+  margin-block-end: ${css.spacing.l};
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+`
+
+const MarginAuto = styled.div`
+  margin-block-start: auto;
 `
 
 const ChipWrapper = styled.div`

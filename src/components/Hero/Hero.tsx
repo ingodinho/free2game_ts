@@ -22,24 +22,24 @@ const Hero = ({children, page}: HeroProps) => {
     const isHome = page === "home";
 
     return (
-        <Wrapper isHome={isHome} imageSrc={imageSrc}>
+        <Wrapper $isHome={isHome} $imageSrc={imageSrc}>
             <Title>{children}</Title>
         </Wrapper>
     )
 }
 
 type WrapperProps = {
-    isHome: boolean;
-    imageSrc: string
+    $isHome: boolean;
+    $imageSrc: string
 }
 
 const Wrapper = styled.section<WrapperProps>`
   align-items: flex-end;
-  background: url(${props => props.imageSrc}) center / cover no-repeat;
-  border-radius: ${props => !props.isHome && css.borderRadius.xl};
+  background: url(${props => props.$imageSrc}) center / cover no-repeat;
+  border-radius: ${props => !props.$isHome && css.borderRadius.xl};
   display: flex;
-  margin-inline: ${props => !props.isHome && css.spacing.m};
-  min-height: ${props => props.isHome ? "580px" : "490px"};
+  margin-inline: ${props => !props.$isHome && css.spacing.m};
+  min-height: ${props => props.$isHome ? "580px" : "490px"};
   padding-block-end: 80px;
   padding-inline-start: 80px;
 `
