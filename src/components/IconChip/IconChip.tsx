@@ -2,16 +2,17 @@ import Chip from "../Chip/Chip.tsx";
 import browser from "../../assets/img/icons/browser.svg";
 import windows from "../../assets/img/icons/windows.svg";
 import styled from "styled-components";
+import {Game} from "../../types/game.type.ts";
 
 type IconChipProps = {
-    plattform: "PC (Windows)" | "Web Browser";
+    platform: Game["platform"];
 }
-const IconChip = ({plattform}: IconChipProps) => {
+const IconChip = ({platform}: IconChipProps) => {
 
-    const iconSrc = plattform === "PC (Windows)" ? windows : browser;
+    const iconSrc = platform === "PC (Windows)" ? windows : browser;
 
     return (
-        <Chip isIcon={true}><Icon src={iconSrc} alt={plattform}/></Chip>
+        <Chip isIcon={true}><Icon src={iconSrc} alt={platform}/></Chip>
     )
 }
 

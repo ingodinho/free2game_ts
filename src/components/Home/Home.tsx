@@ -1,5 +1,4 @@
 import {useGames} from "../../hooks/use-games.hook.ts";
-import Hero from "../Hero/Hero.tsx";
 import Layout from "../Layout/Layout.tsx";
 import HomeSection from "./HomeSection.tsx";
 import Spacer from "../Spacer/Spacer.tsx";
@@ -14,7 +13,6 @@ const Home = () => {
 
     return (
         <>
-            <Hero page={"home"}>FIND & TRACK THE BEST FREE-TO-PLAY GAMES!</Hero>
             <Layout>
                 {/*todo: Loading and Error Component*/}
                 <HomeSection title={"Recently Added"} url={"/"}>

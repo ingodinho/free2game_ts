@@ -12,7 +12,7 @@ type Props = {
 const ChipWrapper = ({platform, genre} : Props) => {
     return (
         <Wrapper>
-            <IconChip plattform={platform}/>
+            <IconChip platform={platform}/>
             <GenreChip genre={genre}/>
         </Wrapper>
     )

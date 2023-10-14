@@ -1,9 +1,10 @@
 import Chip from "../Chip/Chip.tsx";
 import styled from "styled-components";
 import {css} from "../../constants.ts";
+import {Game} from "../../types/game.type.ts";
 
 type GenreChipProps = {
-    genre: string
+    genre: Game["genre"]
 }
 
 const GenreChip = ({genre}: GenreChipProps) => {

@@ -36,7 +36,9 @@ const spacing = {
     xl: "48px",
     xxl: "72px",
     layoutTop: "96px",
-    layoutBottom: "144px"
+    layoutBottom: "144px",
+    sideMenuClosed: "74px",
+    sideMenuOpened: "MEHR"
 }
 
 export const css = {

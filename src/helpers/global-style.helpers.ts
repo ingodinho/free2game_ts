@@ -1,7 +1,6 @@
 import {createGlobalStyle} from "styled-components";
 import Oswald from "../assets/font/oswald/Oswald-VariableFont_wght.ttf"
 import TitilliumRegular from "../assets/font/titillium/TitilliumWeb-Regular.ttf"
-import {css} from "../constants.ts";
 
 const GlobalStyle = createGlobalStyle`
   
@@ -32,7 +31,8 @@ const GlobalStyle = createGlobalStyle`
   body {
     //line-height: 1.5;
     -webkit-font-smoothing: antialiased;
-    background-color: ${css.color.background};
+    max-width: 1440px;
+    margin: 0 auto;
   }
   
   img, picture, video, canvas, svg {

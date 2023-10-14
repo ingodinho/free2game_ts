@@ -41,7 +41,7 @@ const Wrapper = styled.section<WrapperProps>`
   margin-inline: ${props => !props.$isHome && css.spacing.m};
   min-height: ${props => props.$isHome ? "580px" : "490px"};
   padding-block-end: 80px;
-  padding-inline-start: 80px;
+  padding-inline-start: calc(80px + ${css.spacing.sideMenuClosed});
 `
 
 const Title = styled.h2`
