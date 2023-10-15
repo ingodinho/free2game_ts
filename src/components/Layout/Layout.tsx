@@ -2,19 +2,23 @@ import styled from "styled-components";
 import {css} from "../../constants.ts";
 import React from "react";
 import TopMenu from "../TopMenu/TopMenu.tsx";
-import Hero from "../Hero/Hero.tsx";
+import Hero, {Page} from "../Hero/Hero.tsx";
 import SideMenu from "../SideMenu/SideMenu.tsx";
+import {useLocation} from "react-router-dom";
 
 type LayoutProps = {
     children: React.ReactNode
 }
 
 const Layout = ({children}: LayoutProps) => {
+
+    const {pathname} = useLocation();
+
     return (
         <>
             <SideMenu/>
             <TopMenu/>
-            <Hero page={"home"}>FIND & TRACK THE BEST FREE-TO-PLAY GAMES!</Hero>
+            <Hero page={pathname as Page}/>
             <Main>{children}</Main>
         </>
     )

@@ -1,3 +1,10 @@
+
+const animation = {
+    transitionDelay: {
+        sideMenu: "200ms"
+    }
+}
+
 const borderRadius = {
     m: "12px",
     ml: "15px",
@@ -37,11 +44,12 @@ const spacing = {
     xxl: "72px",
     layoutTop: "96px",
     layoutBottom: "144px",
-    sideMenuClosed: "74px",
-    sideMenuOpened: "MEHR"
+    sideMenuClosed: "80px",
+    sideMenuOpened: "300px"
 }
 
 export const css = {
+    animation,
     borderRadius,
     color,
     fontFamily,

@@ -1,7 +1,7 @@
-import Chip from "../Chip/Chip.tsx";
+import Chip from "../Chip.tsx";
 import styled from "styled-components";
-import {css} from "../../constants.ts";
-import {Game} from "../../types/game.type.ts";
+import {css} from "../../../constants.ts";
+import {Game} from "../../../types/game.type.ts";
 
 type GenreChipProps = {
     genre: Game["genre"]

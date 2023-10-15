@@ -33,7 +33,6 @@ const Wrapper = styled.div<WrapperProps>`
   width: 3.625rem;
 `
 
-// todo: font family roboto => wtf..
 const Number = styled.span`
   color: ${css.color.textLight};
   font-family: ${css.fontFamily.primary};

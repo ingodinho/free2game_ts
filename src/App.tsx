@@ -1,13 +1,16 @@
 import {RouterProvider} from "react-router-dom";
 import {router} from "./router.tsx";
+import SideMenuContext from "./context/SideMenu.context.tsx";
 
 function App() {
 
-  return (
-    <>
-      <RouterProvider router={router} />
-    </>
-  )
+    return (
+        <>
+            <SideMenuContext>
+                <RouterProvider router={router}/>
+            </SideMenuContext>
+        </>
+    )
 }
 
 export default App
