@@ -22,7 +22,7 @@ const SideMenu = () => {
                     <HomeIcon/>
                     {isMenuOpen && <LinkTitle>Home</LinkTitle>}
                 </StyledNavLink>
-                <StyledNavLink to={"/"}>
+                <StyledNavLink to={"/all-games"}>
                     <GameIcon/>
                     {isMenuOpen && <LinkTitle>All Games</LinkTitle>}
                 </StyledNavLink>

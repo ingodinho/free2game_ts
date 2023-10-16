@@ -5,8 +5,13 @@ type Props = {
     children: React.ReactNode;
 }
 
+type ContextProps = {
+    isMenuOpen: boolean;
+    toggleMenu: () => void;
+}
+
 // todo: check if this is ok
-export const SideMenuContext = React.createContext<{isMenuOpen: boolean, toggleMenu: () => void}>({isMenuOpen: false, toggleMenu: () => undefined});
+export const SideMenuContext = React.createContext<ContextProps>({isMenuOpen: false, toggleMenu: () => undefined});
 
 const SideMenuContextProvider = ({children} : Props) => {
 

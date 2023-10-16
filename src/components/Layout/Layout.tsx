@@ -15,17 +15,22 @@ const Layout = ({children}: LayoutProps) => {
     const {pathname} = useLocation();
 
     return (
-        <>
+        <Wrapper>
             <SideMenu/>
             <TopMenu/>
             <Hero page={pathname as Page}/>
             <Main>{children}</Main>
-        </>
+        </Wrapper>
     )
 }
 
-const Main = styled.main`
+// todo: better way for background color
+const Wrapper = styled.div`
   background-color: ${css.color.background};
+  height: 100%;
+`
+
+const Main = styled.main`
   padding-inline-start: calc(${css.spacing.xxl} + ${css.spacing.sideMenuClosed});
   padding-inline-end: ${css.spacing.xxl};
   padding-block-start: ${css.spacing.layoutTop};
