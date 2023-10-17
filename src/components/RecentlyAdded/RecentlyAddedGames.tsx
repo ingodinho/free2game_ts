@@ -1,10 +1,10 @@
 import CardList from "../CardList/CardList.tsx";
-import {useGames} from "../../hooks/use-games.hook.ts";
+import {useGamesWithFilter} from "../../hooks/use-games.hook.ts";
 import Card from "../Card/Card.tsx";
 
 const RecentlyAddedGames = () => {
 
-    const {data, isLoading} = useGames();
+    const {data, isLoading} = useGamesWithFilter({"sort-by": ["release-date"], platform: [], tag: []});
 
     if(isLoading) {
         return <p>...isLoading</p>
@@ -13,7 +13,7 @@ const RecentlyAddedGames = () => {
     return (
         <>
             <CardList>
-                {data!.filter((_,index) => index < 15).map(game => (
+                {data!.filter((_,index) => index < 8).map(game => (
                     <Card game={game} key={game.id}/>
                 ))}
             </CardList>

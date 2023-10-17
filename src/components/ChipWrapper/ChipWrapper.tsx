@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import {css} from "../../constants.ts";
-import IconChip from "../Chip/IconChip/IconChip.tsx";
-import GenreChip from "../Chip/GenreChip/GenreChip.tsx";
+import IconChip from "../Chip/IconChip.tsx";
+import GenreChip from "../Chip/GenreChip.tsx";
 import {Game} from "../../types/game.type.ts";
 
 type Props = {

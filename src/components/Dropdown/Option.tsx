@@ -3,17 +3,42 @@ import Rectangle from "../icons/Rectangle.tsx";
 import {css} from "../../constants.ts";
 import Union from "../icons/Union.tsx";
 import useToggle from "../../hooks/use-toggle.hook.ts";
+import {useFilterContext} from "../../hooks/use-filter.hook.ts";
+import {TOption} from "../../types/option.type.ts";
+import {FilterOptions} from "../../context/Filter.context.tsx";
 
-type Props = {
-    label: string;
-}
 
-const Option = ({label}: Props) => {
+const Option = ({label, value, category}: TOption) => {
 
-    const [isSelected, toggleSelect] = useToggle(false);
+    const {filterOptions, setFilterOptions} = useFilterContext();
+
+    const [isSelected, toggleSelect] = useToggle(filterOptions[category].includes(value));
+
+    const clickHandler = () => {
+        toggleSelect()
+        setFilterOptions(setNextFilterOptions);
+    }
+
+    const setNextFilterOptions = (currentFilter: FilterOptions) => {
+        const filterIsAlreadySet = currentFilter[category].includes(value);
+
+        if (category !== "tag") {
+            return {...currentFilter, [category]: filterIsAlreadySet ? [] : [value]};
+        }
+
+        let nextCategory = [...currentFilter[category]];
+
+        if (filterIsAlreadySet) {
+            nextCategory = nextCategory.filter(filterValue => value !== filterValue);
+        } else {
+            nextCategory = [...nextCategory, value];
+        }
+
+        return {...currentFilter, [category]: nextCategory};
+    }
 
     return (
-        <Wrapper onClick={toggleSelect}>
+        <Wrapper onClick={clickHandler}>
             <IconWrapper>
                 <Rectangle/>
                 {/*todo: fix with styled components*/}

@@ -1,8 +1,8 @@
-import Chip from "../Chip.tsx";
-import browser from "../../../assets/img/icons/browser.svg";
-import windows from "../../../assets/img/icons/windows.svg";
+import Chip from "./Chip.tsx";
+import browser from "../../assets/img/icons/browser.svg";
+import windows from "../../assets/img/icons/windows.svg";
 import styled from "styled-components";
-import {Game} from "../../../types/game.type.ts";
+import {Game} from "../../types/game.type.ts";
 
 type IconChipProps = {
     platform: Game["platform"];

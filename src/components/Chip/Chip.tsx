@@ -19,7 +19,6 @@ type WrapperProps = {
 
 const Wrapper = styled.div<WrapperProps>`
   border: 1px solid ${css.color.primary};
-  background: ${css.color.accentDark};
   border-radius: ${css.borderRadius.ml};
   padding-block: ${props => props.$isIcon ? "11px" : "6px"};
   padding-inline: ${css.spacing.xs};

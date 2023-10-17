@@ -5,38 +5,39 @@ import useToggle from "../../hooks/use-toggle.hook.ts";
 import ChevronUp from "../icons/ChevronUp.tsx";
 import Option from "./Option.tsx";
 import React from "react";
+import {TOption} from "../../types/option.type.ts";
 
 type Props = {
     label: string;
-    options: string[]
+    options: TOption[]
 }
 
 const Dropdown = ({label, options}: Props) => {
 
     const [isExpanded, toggleExpand] = useToggle(false);
 
-    const labelWrapperRef = React.useRef<HTMLDivElement>(null);
+    const wrapperRef = React.useRef<HTMLDivElement>(null);
 
     // todo: change to custom hook!
 
     const [wrapperHeight, setWrapperHeight] = React.useState<number | undefined>();
     React.useEffect(() => {
-        const rect = labelWrapperRef.current!.getClientRects();
+        const rect = wrapperRef.current!.getClientRects();
         setWrapperHeight(rect[0].height);
     }, [])
 
     return (
         <PositionWrapper>
-            <Wrapper>
-                <LabelWrapper onClick={toggleExpand} ref={labelWrapperRef}>
+            <Wrapper ref={wrapperRef}>
+                <LabelWrapper onClick={toggleExpand}>
                     <Label>{label}</Label>
                     {isExpanded && <ChevronUp/>}
                     {!isExpanded && <ChevronDown/>}
                 </LabelWrapper>
                 {isExpanded &&
                     <OptionWrapper $parentHeight={wrapperHeight ? wrapperHeight.toString()+"px" : undefined}>
-                        {options.map(label => (
-                            <Option label={label} key={label}/>
+                        {options.map(option => (
+                            <Option label={option.label} key={option.value} value={option.value} category={option.category}/>
                         ))}
                     </OptionWrapper>
                 }
@@ -79,7 +80,7 @@ const OptionWrapper = styled.div<{$parentHeight?: string}>`
   flex-direction: column;
   gap: ${css.spacing.xs};
   left: 0;
-  padding-block-start: ${css.spacing.m} + ${p => p.$parentHeight ? p.$parentHeight : ""};
+  padding-block-start: calc(${css.spacing.m} + ${p => p.$parentHeight ? p.$parentHeight : ""});
   padding-block-end: ${css.spacing.m};
   padding-inline: ${css.spacing.xs};
   position: absolute;
