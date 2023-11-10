@@ -21,7 +21,7 @@ const Dropdown = ({label, options}: Props) => {
     // todo: change to custom hook!
 
     const [wrapperHeight, setWrapperHeight] = React.useState<number | undefined>();
-    React.useEffect(() => {
+    React.useLayoutEffect(() => {
         const rect = wrapperRef.current!.getClientRects();
         setWrapperHeight(rect[0].height);
     }, [])

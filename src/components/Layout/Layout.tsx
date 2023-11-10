@@ -18,7 +18,7 @@ const Layout = ({children}: LayoutProps) => {
         <Wrapper>
             <SideMenu/>
             <TopMenu/>
-            <Hero page={pathname as Page}/>
+            {!pathname.startsWith("/game") && <Hero page={pathname as Page}/>}
             <Main>{children}</Main>
         </Wrapper>
     )

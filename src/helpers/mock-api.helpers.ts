@@ -4,7 +4,7 @@ import {Game} from "../types/game.type.ts";
 
 export const getAllGames = async () : Promise<Game[]> => {
     await delay(750);
-    return allGamesData;
+    return allGamesData as Game[];
 }
 
 export const getGameDetails = async () => {

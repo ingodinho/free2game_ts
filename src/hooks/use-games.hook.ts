@@ -1,6 +1,6 @@
 import {apiBaseLink, fetcher} from "../helpers/api.helpers.ts";
 import useSWR from "swr";
-import {Game} from "../types/game.type.ts";
+import {Game, GameDetails} from "../types/game.type.ts";
 import {FilterOptions} from "../context/Filter.context.tsx";
 import {optionToString} from "../helpers/filter.helpers.ts";
 
@@ -13,7 +13,7 @@ type Category = "platform" | "tag" | "sort-by";
  */
 export const useGamesWithFilter = (filterOptions: FilterOptions) => {
 
-    // todo: refactor this shit. but works though
+    // todo: refactor this code. but works though
     const filterArray = Object.keys(filterOptions).map(category => optionToString(filterOptions, category as Category));
     let url : string;
 
@@ -41,4 +41,16 @@ export const useGames = () => {
     const {data, error, isLoading} = useSWR<Game[]>(url, fetcher);
 
     return {data, error, isLoading};
+}
+
+/**
+ * Hook for retrieving Information to a specific game
+ * @param id GameId
+ */
+export const useGameDetails = (id: string) => {
+
+    const url = apiBaseLink + `/game?id=${id}`;
+    const {data, error, isLoading} = useSWR<GameDetails>(url, fetcher);
+
+    return {data, error, isLoading}
 }

@@ -3,6 +3,7 @@ import {css} from "../../constants.ts";
 import Logo from "../icons/Logo.tsx";
 import Search from "../Search/Search.tsx";
 import useSideMenu from "../../hooks/use-side-menu.hook.ts";
+import {Link} from "react-router-dom";
 
 const TopMenu = () => {
 
@@ -12,8 +13,10 @@ const TopMenu = () => {
 
     return (
         <Wrapper $widthSideMenu={widthSideMenu}>
-            <Logo/>
-            <Title>FREE2GAME</Title>
+            <StyledLink to={"/"}>
+                <Logo/>
+                <Title>FREE2GAME</Title>
+            </StyledLink>
             <Search/>
         </Wrapper>
     )
@@ -27,11 +30,19 @@ const Wrapper = styled.div<WrapperProps>`
   align-items: center;
   background-color: ${css.color.background};
   display: flex;
-  gap: ${css.spacing.s};
   padding-inline-start: calc(${css.spacing.m} + ${p => p.$widthSideMenu});
   padding-inline-end: ${css.spacing.m};
   padding-block: ${css.spacing.s};
   transition: padding-inline-start ${css.animation.transitionDelay.sideMenu} ease;
+`
+
+const StyledLink = styled(Link)`
+  align-items: center;
+  color: inherit;
+  display: flex;
+  gap: ${css.spacing.s};
+  margin-right: auto;
+  text-decoration: none;
 `
 
 const Title = styled.h1`
@@ -39,7 +50,6 @@ const Title = styled.h1`
   font-family: ${css.fontFamily.primary};
   font-size: ${css.fontSize["24"]};
   font-weight: 700;
-  margin-right: auto;
 `
 
 export default TopMenu;

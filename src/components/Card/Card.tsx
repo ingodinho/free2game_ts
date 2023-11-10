@@ -3,6 +3,7 @@ import {css} from "../../constants.ts";
 import {Game} from "../../types/game.type.ts";
 import Button from "../Button/Button.tsx";
 import ChipWrapper from "../ChipWrapper/ChipWrapper.tsx";
+import Thumbnail from "../Thumbnail/Thumbnail.tsx";
 
 type CardProps = {
     game: Game;
@@ -19,7 +20,7 @@ const Card = ({game, includesDescription = false}: CardProps) => {
                     <Title>{game.title}</Title>
                     {includesDescription && <Description>{game.short_description}</Description>}
                     <MarginAuto></MarginAuto>
-                    <Button url={"/"}>READ MORE</Button>
+                    <Button url={`/game/${game.id}`}>READ MORE</Button>
                 </TextWrapper>
                 <ChipWrapper platform={game.platform} genre={game.genre}/>
             </Body>
@@ -36,11 +37,6 @@ const Wrapper = styled.article`
   color: ${css.color.textLight};
   display: flex;
   flex-direction: column;
-`
-
-const Thumbnail = styled.img`
-  border-radius: ${css.borderRadius.xl};
-  width: 100%;
 `
 
 const Body = styled.div`
