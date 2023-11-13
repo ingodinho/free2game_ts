@@ -4,14 +4,23 @@ import {css} from "../../../constants.ts";
 import RankChip from "./RankChip.tsx";
 import ChipWrapper from "../../ChipWrapper/ChipWrapper.tsx";
 import Button from "../../Button/Button.tsx";
+import {useGameDetails} from "../../../hooks/use-games.hook.ts";
+import Loading from "../../Loading/Loading.tsx";
 
 type Props = {
     game: Game;
 }
 
 const BigCard = ({game}: Props) => {
+
+    const {data, isLoading} = useGameDetails(game.id.toString());
+
+    if(isLoading || !data) {
+        return <Loading/>
+    }
+
     return (
-        <Wrapper $bg={game.thumbnail}>
+        <Wrapper $bg={data.screenshots[0].image}>
             <RankChip position={"right"} rank={1}/>
             <Body>
                 <TextWrapper>

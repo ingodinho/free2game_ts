@@ -3,14 +3,14 @@ import Rectangle from "../icons/Rectangle.tsx";
 import {css} from "../../constants.ts";
 import Union from "../icons/Union.tsx";
 import useToggle from "../../hooks/use-toggle.hook.ts";
-import {useFilterContext} from "../../hooks/use-filter.hook.ts";
+import {useFilter} from "../../hooks/use-filter.hook.ts";
 import {TOption} from "../../types/option.type.ts";
 import {FilterOptions} from "../../context/Filter.context.tsx";
 
 
 const Option = ({label, value, category}: TOption) => {
 
-    const {filterOptions, setFilterOptions} = useFilterContext();
+    const {filterOptions, setFilterOptions} = useFilter();
 
     const [isSelected, toggleSelect] = useToggle(filterOptions[category].includes(value));
 

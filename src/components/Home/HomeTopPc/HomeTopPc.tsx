@@ -1,23 +1,23 @@
 import styled from "styled-components";
 import BigCard from "./BigCard.tsx";
-import {Game} from "../../../types/game.type.ts";
 import FlippedCard from "./FlippedCard.tsx";
 import {css} from "../../../constants.ts";
+import {useGamesWithFilter} from "../../../hooks/use-games.hook.ts";
 
-type Props = {
-    games: Game[] | undefined;
-    isLoading: boolean
-}
+const HomeTopPc = () => {
 
-const HomeTopPc = ({games, isLoading} : Props) => {
+    const {data, isLoading} = useGamesWithFilter({
+        platform: ["pc"],
+        tag: [],
+        "sort-by": ["popularity"]
+    })
 
     if(isLoading) {
         return <p>Loading...</p>
     }
 
-    // todo: check undefined
-    const gameBigCard = games![0];
-    const gamesRest = games!.slice(1, 4);
+    const gameBigCard = data![0];
+    const gamesRest = data!.slice(1, 4);
 
     return (
         <Wrapper>

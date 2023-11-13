@@ -32,7 +32,6 @@ export const useGamesWithFilter = (filterOptions: FilterOptions) => {
     return {data, error, isLoading};
 }
 
-
 /**
  * Hook for retrieving all games from the api
  */

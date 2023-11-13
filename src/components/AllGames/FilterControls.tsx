@@ -3,13 +3,13 @@ import CardList from "../CardList/CardList.tsx";
 import Dropdown from "../Dropdown/Dropdown.tsx";
 import {filterData} from "../../helpers/filter.helpers.ts";
 import Spacer from "../Spacer/Spacer.tsx";
-import {useFilterContext} from "../../hooks/use-filter.hook.ts";
+import {useFilter} from "../../hooks/use-filter.hook.ts";
 import FilterChip from "../Chip/FilterChip.tsx";
 import {css} from "../../constants.ts";
 
 const FilterControls = () => {
 
-    const {filterOptions} = useFilterContext();
+    const {filterOptions} = useFilter();
     const platformFilter = filterOptions["platform"];
     const tagFilter = filterOptions["tag"];
     const sortBy = filterOptions["sort-by"];

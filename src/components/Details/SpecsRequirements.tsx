@@ -46,6 +46,7 @@ const SpecsRequirementsWrapper = styled.div`
 `
 
 const RequirementsGrid = styled.div`
+  column-gap: ${css.spacing.m};
   display: grid;
   grid-template-columns: 1fr 1fr;
   row-gap: ${css.spacing.m};

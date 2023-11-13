@@ -1,12 +1,12 @@
 import {useGamesWithFilter} from "../../hooks/use-games.hook.ts";
 import CardList from "../CardList/CardList.tsx";
 import Card from "../Card/Card.tsx";
-import {useFilterContext} from "../../hooks/use-filter.hook.ts";
+import {useFilter} from "../../hooks/use-filter.hook.ts";
 import Loading from "../Loading/Loading.tsx";
 
 const FilteredGames = () => {
 
-    const {filterOptions} = useFilterContext();
+    const {filterOptions} = useFilter();
     const {data, isLoading} = useGamesWithFilter(filterOptions);
 
     if(isLoading) {

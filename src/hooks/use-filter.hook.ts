@@ -1,7 +1,7 @@
 import React from "react";
 import {FilterContext} from "../context/Filter.context.tsx";
 
-export const useFilterContext = () => {
+export const useFilter = () => {
     const {filterOptions, setFilterOptions} = React.useContext(FilterContext);
 
     if(filterOptions === undefined || setFilterOptions === undefined) {

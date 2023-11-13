@@ -2,7 +2,7 @@ import Chip from "./Chip.tsx";
 import styled from "styled-components";
 import Union from "../icons/Union.tsx";
 import {css} from "../../constants.ts";
-import {useFilterContext} from "../../hooks/use-filter.hook.ts";
+import {useFilter} from "../../hooks/use-filter.hook.ts";
 
 type Props = {
     label: string;
@@ -11,7 +11,7 @@ type Props = {
 
 const FilterChip = ({label, category}: Props) => {
 
-    const {filterOptions, setFilterOptions} = useFilterContext();
+    const {filterOptions, setFilterOptions} = useFilter();
 
     const removeOption = () => {
         const currentFilter = [...filterOptions[category]];

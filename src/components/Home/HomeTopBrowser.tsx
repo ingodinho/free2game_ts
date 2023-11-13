@@ -1,18 +1,20 @@
 import CardList from "../CardList/CardList.tsx";
 import Card from "../Card/Card.tsx";
-import {Game} from "../../types/game.type.ts";
+import {useGamesWithFilter} from "../../hooks/use-games.hook.ts";
 
-type Props = {
-    games: Game[] | undefined,
-    isLoading: boolean,
-    error: boolean
-}
-const HomeTopBrowser = ({games, isLoading, error} : Props) => {
+const HomeTopBrowser = () => {
+
+    const {data, isLoading, error} = useGamesWithFilter({
+        platform: ["browser"],
+        tag: [],
+        "sort-by": ["popularity"]
+    })
+
     return (
         <>
             {isLoading && <p>Loading...</p>}
             {error && <p>Something went wrong...</p>}
-            {games && <CardList>{games.filter((_, index) => index < 4).map(game => (
+            {data && <CardList>{data.filter((_, index) => index < 4).map(game => (
                 <Card game={game} key={game.id} includesDescription={false}/>
             ))}
             </CardList>}
