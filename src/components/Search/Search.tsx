@@ -85,16 +85,28 @@ const Input = styled.input`
 
 const FoundGamesWrapper = styled.div`
   background-color: ${css.color.accentLight};
+  border-radius: ${css.borderRadius.m};
   display: flex;
   flex-direction: column;
-  gap: ${css.spacing.xs};
+  gap: ${css.spacing.xxs};
   position: absolute;
   left: 0;
   right: 0;
   top: 50px;
   height: fit-content();
-  max-height: 500px;
+  max-height: 400px;
   overflow-y: scroll;
+  
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    border-radius: ${css.borderRadius.m};
+    background-color: ${css.color.primary};
+  }
+  
+  
 `
 
 export default Search;

@@ -16,8 +16,12 @@ export const optionToString = (filterOptions: FilterOptions, category: TOption["
     return `${category}=${string}`;
 }
 
+type FilterData = {
+  label: string;
+  options: TOption[]
+}[]
 
-export const filterData = [
+export const filterData : FilterData = [
     {
         label: "platform",
         options: [

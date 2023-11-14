@@ -12,7 +12,7 @@ type Props = {
     resetSearchQuery: () => void;
 }
 
-const SmallCard = ({title, thumbnail, id, resetSearchQuery} : Props) => {
+const SmallCard = ({title, thumbnail, id, resetSearchQuery}: Props) => {
     return (
         <Wrapper to={`/game/${id}`} onClick={resetSearchQuery}>
             <Thumbnail src={thumbnail} alt={title}/>
@@ -23,24 +23,26 @@ const SmallCard = ({title, thumbnail, id, resetSearchQuery} : Props) => {
 
 const Wrapper = styled(Link)`
   background-color: ${css.color.accentDark};
+  border-radius: ${css.borderRadius.m};
   color: ${css.color.textLight};
   text-decoration: none;
   display: grid;
-  font-family: ${css.fontFamily.primary};
-  font-size: ${css.fontSize["18"]};
   grid-template-columns: 1fr 1fr;
   padding: ${css.spacing.xs};
-  
+
   h4 {
     align-self: center;
+    font-family: ${css.fontFamily.primary};
+    font-size: ${css.fontSize["16"]};
     justify-self: center;
     transition: color 250ms ease;
+    text-align: center;
   }
 
   &:hover h4 {
     color: ${css.color.primary};
   }
-  
+
 `
 
 export default SmallCard;

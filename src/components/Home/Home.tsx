@@ -1,4 +1,3 @@
-import {useGames} from "../../hooks/use-games.hook.ts";
 import Layout from "../Layout/Layout.tsx";
 import HomeSection from "./HomeSection.tsx";
 import Spacer from "../Spacer/Spacer.tsx";
@@ -9,22 +8,19 @@ import HomeTopPc from "./HomeTopPc/HomeTopPc.tsx";
 
 const Home = () => {
 
-    const {data: games, isLoading, error} = useGames();
-
     return (
         <>
             <Layout>
-                {/*todo: Loading and Error Component*/}
                 <HomeSection title={"Recently Added"} url={"/"}>
-                  <HomeRecentlyAdded games={games} isLoading={isLoading} error={error} />
+                  <HomeRecentlyAdded/>
                 </HomeSection>
                 <Spacer height={css.spacing.layoutTop}/>
                 <HomeSection title={"Top 4 Games in PC"} url={"/"}>
-                    <HomeTopPc games={games} isLoading={isLoading}/>
+                    <HomeTopPc/>
                 </HomeSection>
                 <Spacer height={css.spacing.layoutTop}/>
                 <HomeSection title={"Top 4 Games for Browser"} url={"/"}>
-                    <HomeTopBrowser games={games} isLoading={isLoading} error={error}/>
+                    <HomeTopBrowser/>
                 </HomeSection>
             </Layout>
         </>
